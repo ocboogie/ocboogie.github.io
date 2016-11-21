@@ -1,4 +1,5 @@
 .bbtn {
+  color: #F9FBE7;
   background-color: #FF484C;
   padding-top: 19px;
   padding-bottom: 19px;
@@ -14,27 +15,31 @@
     color: #F9FBE7;
     outline: 0 none; }
 
-.navbar-inverse {
+.navbar {
   background-color: #2C2C2C;
-  border-color: #2C2C2C; }
-  .navbar-inverse .navbar-nav > .active > a {
+  border-color: #2C2C2C;
+  animation-name: dropHeader;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.2s; }
+  .navbar .navbar-nav > .active > a {
     transition: background-color 0.5s ease;
     background-color: #353535; }
-    .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    .navbar .navbar-nav > .active > a:hover, .navbar .navbar-nav > .active > a:focus {
       transition: background-color 0.5s ease;
       background-color: #353535; }
-  .navbar-inverse .navbar-toggle {
+  .navbar .navbar-toggle {
     background-color: #353535; }
-    .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    .navbar .navbar-toggle:hover, .navbar .navbar-toggle:focus {
       background-color: #2C2C2C;
       border-color: #2C2C2C; }
-    .navbar-inverse .navbar-toggle .icon-bar {
+    .navbar .navbar-toggle .icon-bar {
       background-color: #CCC; }
 
 @media (max-width: 767px) {
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  .navbar .navbar-nav .open .dropdown-menu > li > a {
     color: #777; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    .navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar .navbar-nav .open .dropdown-menu > li > a:focus {
       color: #333; } }
 
 @media (min-width: 767px) {
@@ -45,6 +50,12 @@
     transition: background 0.25s ease-in-out, padding 0.25s ease-in-out; }
   .top-nav-collapse {
     padding: 0; } }
+
+@keyframes dropHeader {
+  0% {
+    transform: translateY(-80px); }
+  100% {
+    transform: translateY(0); } }
 
 body {
   width: 100%;

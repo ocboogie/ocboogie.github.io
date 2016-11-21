@@ -1,8 +1,13 @@
-@import "variables"
+@import variables
 
-.navbar-inverse
+.navbar
   background-color: $nav-background-color
   border-color: $nav-background-color
+
+  animation-name: dropHeader
+  animation-iteration-count: 1
+  animation-timing-function: ease-out
+  animation-duration: 0.2s
 
   .navbar-nav > .active > a
     transition: background-color 0.5s ease
@@ -23,7 +28,7 @@
       background-color: #CCC
 
 @media (max-width: 767px)
-  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a
+  .navbar .navbar-nav .open .dropdown-menu > li > a
     color: #777
 
     &:hover, &:focus
@@ -38,3 +43,10 @@
 
   .top-nav-collapse
     padding: 0
+
+@keyframes dropHeader
+  0%
+    transform: translateY(-80px)
+
+  100%
+    transform: translateY(0)
