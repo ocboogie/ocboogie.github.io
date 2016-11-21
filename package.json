@@ -1,0 +1,10 @@
+{
+  "name": "ocboogie.github.io",
+  "repository": "git@github.com:ocboogie/ocboogie.github.io.git",
+  "author": "ocboogie <boogie@mikulec.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}
