@@ -1,4 +1,4 @@
-baseurl: "dist"
+baseurl: "/dist"
 
 markdown: kramdown
 source: dist
