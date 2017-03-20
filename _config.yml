@@ -1,3 +1,5 @@
+baseurl: "dist"
+
 markdown: kramdown
 source: dist
 destination: public
