@@ -1,0 +1,3 @@
+markdown: kramdown
+source: dist
+destination: public
