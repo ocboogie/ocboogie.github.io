@@ -3,11 +3,17 @@ var path = require("path");
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: "./app/index.html",
+  filename: "index.html",
+  inject: "body"
+})
+
 module.exports = {
   entry: "./app/index.js",
 
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "./"),
     filename: "bundle.js"
   },
   target: 'web', 
@@ -47,7 +53,7 @@ module.exports = {
   devtool: "source-map",
 
   plugins: [
-    new HtmlWebpackPlugin(),
+    HtmlWebpackPluginConfig,
     new webpack.ProvidePlugin({
       jQuery: "jquery",
       $: "jquery",
