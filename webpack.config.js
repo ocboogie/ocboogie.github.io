@@ -1,6 +1,7 @@
 var path = require("path");
 
 const webpack = require("webpack")
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: "./app/index.js",
@@ -9,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
+  target: 'web', 
   module: {
     rules: [
       {
@@ -45,7 +47,7 @@ module.exports = {
   devtool: "source-map",
 
   plugins: [
-    HtmlWebpackPluginConfig,
+    new HtmlWebpackPlugin(),
     new webpack.ProvidePlugin({
       jQuery: "jquery",
       $: "jquery",
