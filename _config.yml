@@ -1,9 +1,0 @@
-title: ocboogie's title
-email: boogie@mikule.com
-destination: dist
-twitter_username: ocboogie
-github_username: ocboogie
-
-markdown: kramdown
-source: src
-destination: public

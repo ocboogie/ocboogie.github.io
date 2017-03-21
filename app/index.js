@@ -8,4 +8,3 @@ require('./stylesheets/index.scss');
 require('./js/scroll');
 
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
-
