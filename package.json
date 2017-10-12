@@ -1,0 +1,38 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "ocboogie <boogie@mikulec.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "materialize-css": "^0.100.2",
+    "nuxt": "^1.0.0-rc11",
+    "prismjs": "^1.8.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "cheerio": "^1.0.0-rc.2",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "he": "^1.1.1",
+    "html-loader": "^0.5.1",
+    "loader-utils": "^1.1.0",
+    "markdown-loader": "^2.0.1",
+    "webpack": "^3.6.0"
+  }
+}
