@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <logo />
+      <Logo />
       <h1 class="title">
         ocboogie
       </h1>
