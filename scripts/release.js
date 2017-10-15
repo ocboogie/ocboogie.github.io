@@ -1,9 +1,8 @@
 const path = require('path');
 const { version } = require('../package.json');
 const fse = require('fs-extra-promise');
-const { exec } = require('child-process-promise');
+const { exec, spawn } = require('child-process-promise');
 const semver = require('semver');
-const readline = require('readline');
 const { confirm } = require('node-ask');
 
 const releasePath = path.resolve(__dirname, '../release');
@@ -36,7 +35,7 @@ fse.ensureDirAsync(releasePath).then(() => {
   // Empty the release folder.
   return fse.emptyDir(releasePath);
 })
-  .delay(100) // To prevent git clone errors
+  .delay(350) // To prevent git clone errors
   .then(() => {
     // Clone repository to the release folder.
     return exec(`git clone ${repoUrl} .`, { cwd: releasePath });
@@ -56,8 +55,6 @@ fse.ensureDirAsync(releasePath).then(() => {
       console.log('Please update the version in package.json to release');
       process.exit(1);
     }
-  })
-  .then(() => {
     // Ensure that the dist folder exists
     return fse.ensureDirAsync(distPath);
   })
@@ -82,9 +79,11 @@ fse.ensureDirAsync(releasePath).then(() => {
   })
   .then(() => {
     // Commit files with the name of the version
+    console.log('test 1');
     return exec(`git commit -m ${version}`, { cwd: releasePath });
   })
   .then(() => {
+    console.log('test 2');
     // Log summary
     return exec('git show --color --summary', { cwd: releasePath });
   })
@@ -97,11 +96,23 @@ fse.ensureDirAsync(releasePath).then(() => {
     console.log(result.stdout);
     return confirm('Are you sure you want to push to repo? ');
   })
+  // eslint-disable-next-line consistent-return
   .then((answer) => {
-    if (answer) {
-      return exec('git push', { cwd: releasePath });
+    if (!answer) {
+      console.log('Not pushing');
+      process.exit(1);
     }
-    process.exit(1);
+    const gitPushPromise = spawn('git', ['push'], { cwd: releasePath });
+
+    const gitPushChildProcess = gitPushPromise.childProcess;
+
+    gitPushChildProcess.stdout.on('data', (data) => {
+      console.log('git push: ', data.toString());
+    });
+    gitPushChildProcess.stderr.on('data', (data) => {
+      console.log('git push: ', data.toString());
+    });
+    return gitPushPromise;
   })
   .catch((err) => {
     console.log(err);
