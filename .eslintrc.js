@@ -7,16 +7,21 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: 'airbnb-base',
+  extends: [
+    'airbnb-base',
+    'prettier',
+  ],
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
+    'prettier',
   ],
   // add your custom rules here
   rules: {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'no-param-reassign': ['error', { 'props': false }]
+    'no-param-reassign': ['error', { 'props': false }],
+    'prettier/prettier': 'error',
   },
   globals: {},
   settings: {

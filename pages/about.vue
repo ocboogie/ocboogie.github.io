@@ -10,7 +10,7 @@ import MarkDown from '~/markdown/test.md';
 
 export default {
   components: {
-    MarkDown,
-  },
+    MarkDown
+  }
 };
 </script>

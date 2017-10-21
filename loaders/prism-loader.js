@@ -2,7 +2,9 @@ const cheerio = require('cheerio');
 const he = require('he');
 const Prism = require('prismjs');
 
-function id(a) { return a; }
+function id(a) {
+  return a;
+}
 
 function highlightCode(code, lang) {
   return Prism.highlight(code, Prism.languages[lang]);
@@ -12,7 +14,7 @@ module.exports = (input = '') => {
   this.cacheable();
 
   const $ = cheerio.load(input, {
-    decodeEntities: false,
+    decodeEntities: false
   });
 
   $('pre').replaceWith((index, elem) => {
@@ -24,10 +26,17 @@ module.exports = (input = '') => {
     }
 
     const codeElem = elemjQuery.find('code').eq(0);
-    const lang = codeElem.attr('class').split('lang-').filter(id)[0];
+    const lang = codeElem
+      .attr('class')
+      .split('lang-')
+      .filter(id)[0];
 
-    return $(`<pre class="language-${lang}"><code class="language-${lang}">${highlightCode(text, lang)}</code></pre>`);
+    return $(
+      `<pre class="language-${lang}"><code class="language-${lang}">${highlightCode(
+        text,
+        lang
+      )}</code></pre>`
+    );
   });
   return `<div>${$('body').html()}</div>`;
 };
-

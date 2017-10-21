@@ -8,13 +8,13 @@
 <script>
 export default {
   data: () => ({
-    loading: true,
+    loading: true
   }),
   mounted() {
     setTimeout(() => {
       this.loading = false;
     }, 500);
-  },
+  }
 };
 </script>
 

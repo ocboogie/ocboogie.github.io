@@ -11,9 +11,9 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
   ** Customize the progress bar color
@@ -28,22 +28,24 @@ module.exports = {
     */
     extend(config, ctx) {
       config.resolveLoader = {
-        modules: ['node_modules', path.resolve(__dirname, 'loaders')],
+        modules: ['node_modules', path.resolve(__dirname, 'loaders')]
       };
 
       if (ctx.isClient) {
-        config.plugins.push(new webpack.ProvidePlugin({
-          $: 'jquery',
-          jQuery: 'jquery',
-          'window.jQuery': 'jquery',
-        }));
+        config.plugins.push(
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+          })
+        );
 
         if (ctx.dev) {
           config.module.rules.push({
             enforce: 'pre',
             test: /\.(js|vue)$/,
             loader: ['eslint-loader'],
-            exclude: /(node_modules)/,
+            exclude: /(node_modules)/
           });
         }
       }
@@ -55,12 +57,15 @@ module.exports = {
           'vue-loader',
           'html-to-vue-loader',
           'prism-loader',
-          'markdown-loader',
-        ],
+          'markdown-loader'
+        ]
       });
-    },
+    }
   },
 
   // include css from libraries
-  css: ['materialize-css/dist/css/materialize.min.css', 'prismjs/themes/prism.css'],
+  css: [
+    'materialize-css/dist/css/materialize.min.css',
+    'prismjs/themes/prism.css'
+  ]
 };
