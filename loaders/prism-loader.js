@@ -2,10 +2,6 @@ const cheerio = require('cheerio');
 const he = require('he');
 const Prism = require('prismjs');
 
-function id(a) {
-  return a;
-}
-
 function highlightCode(code, lang) {
   return Prism.highlight(code, Prism.languages[lang]);
 }
@@ -32,7 +28,7 @@ module.exports = function(input = '') {
     const lang = codeElem
       .attr('class')
       .split('lang-')
-      .filter(id)[0];
+      .filter(id => id)[0];
 
     return $(
       `<pre class="language-${lang}"><code class="language-${lang}">${highlightCode(
