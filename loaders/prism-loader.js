@@ -10,7 +10,10 @@ function highlightCode(code, lang) {
   return Prism.highlight(code, Prism.languages[lang]);
 }
 
-module.exports = (input = '') => {
+// We can't use an arrow function here because
+// "this.cacheable();" won't work correctly
+// eslint-disable-next-line func-names
+module.exports = function(input = '') {
   this.cacheable();
 
   const $ = cheerio.load(input, {
