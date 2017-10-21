@@ -1,5 +1,1 @@
-const fs = require('fs');
-
-module.exports = function (input) {
-  return "<template>" + input + "</template>";
-}
+module.exports = input => `<template>${input}</template>`;
