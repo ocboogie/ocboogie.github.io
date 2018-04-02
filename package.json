@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -b master -d public",
     "develop": "gatsby develop",
     "format": "npm run lint -- --fix",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
